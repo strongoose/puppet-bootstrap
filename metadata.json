@@ -2,9 +2,9 @@
   "name": "ouroboros8-bootstrap",
   "version": "0.1.0",
   "author": "Daniel Strong",
-  "summary": "",
+  "summary": "Install r10k and set the environment",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/ouroboros8/puppet-bootstrap",
   "dependencies": [
     { "name": "puppet-r10k", "version_requirement": ">= 6.6.0 < 7.0.0" }
   ],
