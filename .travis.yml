@@ -1,6 +1,6 @@
 ---
 sudo: false
-dist: trusty
+dist: bionic
 language: ruby
 cache: bundler
 before_install:
@@ -13,7 +13,7 @@ script:
   - 'bundle exec rake $CHECK'
 bundler_args: --without system_tests
 rvm:
-  - 2.4.1
+  - 2.5.1
 env:
   global:
     - BEAKER_PUPPET_COLLECTION=puppet5 PUPPET_GEM_VERSION="~> 5.0"
@@ -21,7 +21,7 @@ matrix:
   fast_finish: true
   include:
     -
-      env: CHECK="syntax lint metadata_lint check:symlinks check:git_ignore check:dot_underscore check:test_file rubocop"
+      env: DEPLOY_TO_FORGE=yes CHECK="syntax lint metadata_lint check:symlinks check:git_ignore check:dot_underscore check:test_file rubocop"
     -
       env: CHECK=parallel_spec
     -
@@ -41,3 +41,4 @@ deploy:
   on:
     tags: true
     all_branches: true
+    condition: "$DEPLOY_TO_FORGE = yes"
